@@ -1,0 +1,41 @@
+<div style="background-color: rgb(252, 242, 99)">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <h2 class=" text-center mt-5"><span style="color: rgb(27, 27, 138);font-size: 100px;">Register</span></h2>
+            <form (ngSubmit)="register()" [formGroup]="registerForm" class="border mt-5 p-4 mb-5" style="background-color:  rgb(186, 192, 35); border-radius: 6%;">
+                <div class="mt-2" >
+                    <label for="">Email</label>
+                    <input formControlName="email" name="email" type="text" class="form-control mt-2" placeholder="Email">
+                </div>
+                <!-- checking if accno correct: STRUCTURAL DIRECTIVE:*ngIf  -->
+                <div style="color: rgb(38, 6, 6);;" *ngIf= "this.registerForm.get('email')?.touched&&this.registerForm.get('email')?.errors">
+                    Invalid Email
+                </div>
+                <div class="mt-2" >
+                    <label for="">Username</label>
+                    <input formControlName="uname" name="uname" type="text" class="form-control mt-2" placeholder="Username">
+                </div>
+                <!-- checking if accno correct: STRUCTURAL DIRECTIVE:*ngIf  -->
+                <div style="color: rgb(38, 6, 6);;" *ngIf= "this.registerForm.get('uname')?.touched&&this.registerForm.get('uname')?.errors">
+                    Invalid Username
+                </div>
+                <div class="mt-2">
+                    <label for="">Password</label>
+                    <input formControlName="password" name="password" type="text" class="form-control mt-2" placeholder="Password">
+                </div>
+                <!-- checking password correct : STRUCTURAL DIRECTIVE:*ngIf-->
+                <div style="color: rgb(38, 6, 6);;" *ngIf= "this.registerForm.get('password')?.touched&&this.registerForm.get('password')?.errors" >
+                    Invalid Password
+                </div>
+                <div class="mt-3">
+                    <span style="float:right ;">Already User? Click here to  <a routerLink = "/app-login">Login</a></span>
+                </div>
+                <div class="mt-5 text-center">
+                    <button type="submit" class="btn btn-primary mt-3">Register</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>
